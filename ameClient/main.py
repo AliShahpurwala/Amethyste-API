@@ -21,7 +21,7 @@ class ameClient:
 		self._token = token
 		self.baseURL = "https://v1.api.amethyste.moe"
 
-	def generate(self, endpoint, data = {}):
+	def generate(self, endpoint, data={}):
 		"""
 		Args:
 			- endpoint: str
