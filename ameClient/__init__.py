@@ -1,1 +1,1 @@
-from main import ameClient
+from .main import ameClient
