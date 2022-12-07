@@ -1,4 +1,5 @@
 import requests
+import json
 
 class ameClient:
 	"""
@@ -40,4 +41,16 @@ class ameClient:
 				response.raise_for_status()
 		except Exception as e:
 			raise e
-
+	def get_generate_endpoints(self, premium=False):
+		try:
+			response = requests.request(method="GET",
+										url=f"{self.baseURL}/generate",
+										headers={
+										"Authorization": f"Bearer {self._token}"
+										})
+			if response.ok:
+				return json.loads(response.content)["endpoints"]["premium"] if premium else json.loads(response.content)["endpoints"]["free"]
+			else:
+				response.raise_for_status()
+		except Exception as e:
+			raise e
